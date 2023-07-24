@@ -10,9 +10,9 @@ class BaseRecommender(ABC):
     def recommend(self, dataset: Dataset, k: int, **kwargs) -> RecommendResult:
         raise NotImplementedError()
 
-    def run_sample(self):
+    def run_sample(self, **kwargs):
         dataset = DataLoader().load()
-        recommendations = self.recommend(dataset, k=10)
+        recommendations = self.recommend(dataset, k=10, **kwargs)
 
         metrics = MetricCalculator().metrics(
             true_items=dataset.test.rating.to_list(),
@@ -21,5 +21,6 @@ class BaseRecommender(ABC):
             pred_user2items=recommendations.user2items,
             k=10
         )
+
+        return metrics
         
-        print(metrics)
