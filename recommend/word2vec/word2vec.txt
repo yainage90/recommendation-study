@@ -1,0 +1,11 @@
+1. contents based
+  a. 각 영화를 sentence로 변환(태그, 장르 등 활용)
+  b. word2vec 모델 학습
+  c. 각 영화를 벡터로 치환
+  d. 유저가 최근에 높게 평가한 영화 n개의 벡터 평균을 유저 벡터로 가정
+  e. 유저 벡터와 가장 인접한 n개의 영화를 추천
+
+2. collaborative filtering
+  a. 유저가 본 영화 데이터에서 영화를 단어로 가정
+  b. word2vec 모델 학습 -> 영화별 벡터가 구해짐
+  c. 유저가 최근에 높게 평가한 영화 n개와 가장 가까운 벡터 n개를 추천(most_similar 바로 사용가능)
